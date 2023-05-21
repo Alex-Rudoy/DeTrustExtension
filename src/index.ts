@@ -1,5 +1,8 @@
 import { Detrust } from './Detrust';
+import onDocumentLoad from './lib/utils/onDocumentLoad';
 
-const detrust = new Detrust();
+onDocumentLoad(() => {
+  const detrust = new Detrust();
 
-detrust.init();
+  detrust.init();
+});

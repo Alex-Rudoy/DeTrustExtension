@@ -6,11 +6,11 @@ module.exports = {
     moda: './src/index.ts',
   },
   output: {
-    path: `${__dirname}/dist/src`,
-    filename: 'moda/moda.js',
+    path: `${__dirname}/dist`,
+    filename: 'index.js',
     publicPath: '/',
     libraryTarget: 'var',
-    library: 'Moda',
+    library: 'Detrust',
   },
   resolve: {
     extensions: ['.js', '.ts'],

@@ -1,9 +1,11 @@
 import axios from 'axios';
 
+import { BASE_URL } from './constants';
+
 import { FetchDegensResponse, FetchTokensResponse } from './typings';
 
 const axiosInstance = axios.create({
-  baseURL: process.env.BASE_URL,
+  baseURL: BASE_URL,
 });
 
 const api = {
