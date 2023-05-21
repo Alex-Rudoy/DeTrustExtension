@@ -1,4 +1,4 @@
 *.pem
 .DS_Store
-haters/
-/.idea/who-blue-main.iml
+.env
+/node_modules
