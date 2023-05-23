@@ -4,7 +4,9 @@ import {
   DEGEN_MENTION_REGEX,
   DETRUST_VISITED_CLASS,
 } from './lib/constants';
+import { DegenScore } from './score/DegenScore';
 import { Score } from './score/Score';
+import { TokenScore } from './score/TokenScore';
 
 export class Detrust {
   dataLayer: DetrustDataLayer;
@@ -54,9 +56,14 @@ export class Detrust {
         (el) => el.children.length === 1 && el.children[0].tagName === 'A',
       )
       .forEach((el) => {
-        const score = new Score({ percent: 0.9, width: 18, marginLeft: 4 });
-        el?.insertAdjacentElement('beforeend', score.pieElement);
         el.classList.add(DETRUST_VISITED_CLASS);
+        const score = new TokenScore({
+          dataLayer: this.dataLayer,
+          symbol: el.innerText.replace('$', ''),
+          marginLeft: 4,
+        });
+        if (!score.score) return;
+        el?.insertAdjacentElement('beforeend', score.score.pieElement);
       });
   }
 
@@ -69,10 +76,17 @@ export class Detrust {
         (el) => el.children.length === 1 && el.children[0].tagName === 'A',
       )
       .forEach((el) => {
-        const score = new Score({ percent: 0.9, width: 18, marginLeft: 4 });
-        el?.parentElement?.insertAdjacentElement('afterend', score.pieElement);
-        // el.parentElement?.style.setProperty('flex-direction', 'row');
         el.classList.add(DETRUST_VISITED_CLASS);
+        const score = new DegenScore({
+          dataLayer: this.dataLayer,
+          username: el.innerText.replace('@', ''),
+          marginLeft: 4,
+        });
+        if (!score.score) return;
+        el?.parentElement?.insertAdjacentElement(
+          'afterend',
+          score.score.pieElement,
+        );
       });
   }
 
@@ -89,12 +103,14 @@ export class Detrust {
             el.parentElement?.parentElement?.parentElement?.tagName === 'A'),
       )
       .forEach((el) => {
-        const score = new Score({ percent: 0.9, width: 18, marginRight: 4 });
-        el?.parentElement?.parentElement?.parentElement?.parentElement?.parentElement?.insertAdjacentElement(
-          'beforebegin',
-          score.pieElement,
-        );
         el.classList.add(DETRUST_VISITED_CLASS);
+        const score = new DegenScore({
+          dataLayer: this.dataLayer,
+          username: el.innerText.replace('@', ''),
+          marginRight: 4,
+        });
+        if (!score.score) return;
+        el?.insertAdjacentElement('beforebegin', score.score.pieElement);
       });
   }
 
@@ -109,7 +125,12 @@ export class Detrust {
       element = element?.children[0];
     }
 
-    const score = new Score({ percent: 0.9, width: 18, marginLeft: 4 });
-    element?.insertAdjacentElement('beforeend', score.pieElement);
+    const score = new DegenScore({
+      dataLayer: this.dataLayer,
+      username: (element as HTMLSpanElement).innerText.replace('@', ''),
+      marginLeft: 4,
+    });
+    if (!score.score) return;
+    element?.insertAdjacentElement('beforeend', score.score.pieElement);
   }
 }

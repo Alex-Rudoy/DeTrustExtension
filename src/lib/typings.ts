@@ -1,17 +1,21 @@
 import { AxiosResponse } from 'axios';
 
 export type DegenType = {
-  id: `${number}` | '';
-  mentions_count: number;
-  username: string;
-  project_id: `${number}` | '';
+  assets: number;
+  assets_scaled: number;
+  big_followers: number;
+  big_followers_scaled: number;
+  followers_count: number;
+  followers_count_scaled: number;
+  general_score: number;
+  influence: number;
+  influence_scaled: number;
+  popularity: number;
+  popularity_scaled: number;
   price_change: number;
-  positive_mentions_count: number;
-  positive_price_change: number;
-  negative_mentions_count: number;
-  negative_price_change: number;
-  reputation: number;
-  won: number;
+  price_change_scaled: number;
+  user_id: string;
+  username: string;
 };
 
 export type TokenType = {
