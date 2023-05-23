@@ -4,7 +4,6 @@ import {
   DEGEN_MENTION_REGEX,
   DETRUST_VISITED_CLASS,
 } from './lib/constants';
-import { delay } from './lib/utils/delay';
 import { Score } from './score/Score';
 
 export class Detrust {
