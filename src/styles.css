@@ -149,3 +149,8 @@
 .detrust_popup .title_line a:hover {
   text-decoration: underline;
 }
+
+.detrust_degen_note {
+  font-size: 14px;
+  font-weight: 400;
+}

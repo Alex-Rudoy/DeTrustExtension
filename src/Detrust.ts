@@ -3,10 +3,12 @@ import {
   CASH_TAG_REGEX,
   DEGEN_MENTION_REGEX,
   DETRUST_VISITED_CLASS,
+  scoreLetterToDescriptionMap,
 } from './lib/constants';
 import { DegenScore } from './score/DegenScore';
-import { Score } from './score/Score';
 import { TokenScore } from './score/TokenScore';
+
+import './styles.css';
 
 export class Detrust {
   dataLayer: DetrustDataLayer;
@@ -59,10 +61,11 @@ export class Detrust {
         el.classList.add(DETRUST_VISITED_CLASS);
         const score = new TokenScore({
           dataLayer: this.dataLayer,
-          symbol: el.innerText.replace('$', ''),
+          valueToSearch: el.innerText.replace('$', ''),
           marginLeft: 4,
         });
         if (!score.score) return;
+        console.log('addScoreToTokens 1', score.score);
         el?.insertAdjacentElement('beforeend', score.score.pieElement);
       });
   }
@@ -83,6 +86,7 @@ export class Detrust {
           marginLeft: 4,
         });
         if (!score.score) return;
+        console.log('addScoreToMentions 2', score.score);
         el?.parentElement?.insertAdjacentElement(
           'afterend',
           score.score.pieElement,
@@ -110,27 +114,49 @@ export class Detrust {
           marginRight: 4,
         });
         if (!score.score) return;
+        console.log('addScoreToPostAuthor 3', score.score);
         el?.insertAdjacentElement('beforebegin', score.score.pieElement);
       });
   }
 
   addScoreToUserName() {
-    let element = document.querySelector('[data-testid*="UserName"]');
-    if (!element) return;
+    const userNameBlock = document.querySelector('[data-testid*="UserName"]');
+    if (!userNameBlock) return;
 
-    if (element.classList.contains(DETRUST_VISITED_CLASS)) return;
-    element.classList.add(DETRUST_VISITED_CLASS);
+    if (userNameBlock.classList.contains(DETRUST_VISITED_CLASS)) return;
+    userNameBlock.classList.add(DETRUST_VISITED_CLASS);
 
-    while (element.tagName !== 'SPAN') {
-      element = element?.children[0];
+    let targetElement = userNameBlock;
+    while (targetElement.tagName !== 'SPAN') {
+      if (targetElement?.children.length === 0) return;
+      targetElement = targetElement.children[0];
     }
+
+    let username = '';
+    Array.from(userNameBlock.querySelectorAll('span')).forEach((el) => {
+      if (el.innerText.match(DEGEN_MENTION_REGEX)) {
+        username = el.innerText.replace('@', '');
+      }
+    });
 
     const score = new DegenScore({
       dataLayer: this.dataLayer,
-      username: (element as HTMLSpanElement).innerText.replace('@', ''),
+      username,
       marginLeft: 4,
+      marginRight: 4,
     });
     if (!score.score) return;
-    element?.insertAdjacentElement('beforeend', score.score.pieElement);
+    console.log('addScoreToUserName 4', score.score);
+
+    targetElement?.insertAdjacentElement('beforeend', score.score.pieElement);
+
+    const note = document.createElement('div');
+    note.classList.add('detrust_degen_note');
+    note.style.setProperty(
+      'color',
+      `hsl(${score.score.percentNumber * 1.3 - 20}, 70%, 50%)`,
+    );
+    note.innerText = scoreLetterToDescriptionMap[score.score.letter];
+    targetElement?.insertAdjacentElement('beforeend', note);
   }
 }

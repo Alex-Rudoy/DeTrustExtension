@@ -14,7 +14,7 @@ const api = {
   },
 
   getDegens(): Promise<FetchDegensResponse> {
-    return axiosInstance.get(`/general/degen_list`);
+    return axiosInstance.get('/general/degen_list');
   },
 };
 

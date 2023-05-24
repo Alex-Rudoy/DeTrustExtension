@@ -4,7 +4,7 @@ export const roundToThreeSigFigs = (num: number): number => {
   }
 
   const power = Math.floor(Math.log10(Math.abs(num))) - 2;
-  const factor = Math.pow(10, -power);
+  const factor = 10 ** -power;
   const rounded = Math.round(num * factor) / factor;
 
   return rounded;

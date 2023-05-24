@@ -1,14 +1,13 @@
 import { Instance, createPopper } from '@popperjs/core';
 import { postfixNumber } from '../lib/utils/postfixNumber';
 
-import './styles.css';
-
 export class Score {
+  props: ScoreProps;
   pieElement: HTMLDivElement;
   popupElement: HTMLDivElement;
-  props: ScoreProps;
-  letter: ScoreLetter = 'A';
   popperInstance?: Instance;
+  percentNumber: number = 0;
+  letter: ScoreLetter = 'A';
 
   constructor(props: ScoreProps) {
     this.props = props;
@@ -25,6 +24,8 @@ export class Score {
     this.popupElement = this.generateHoverPopup();
     this.popperInstance = createPopper(this.pieElement, this.popupElement);
     this.addEventListeners();
+    this.percentNumber = Math.round(percent * 100);
+    this.letter = this.letterFromScore(this.percentNumber);
   }
 
   bindMethods() {
@@ -46,7 +47,7 @@ export class Score {
     top?: number,
   ) {
     const percentNumber = Math.round(percent * 100);
-    this.letter = this.letterFromScore(percentNumber);
+    const letter = this.letterFromScore(percentNumber);
 
     const pieElement = document.createElement('div');
     pieElement.classList.add('detrust_pie');
@@ -63,7 +64,7 @@ export class Score {
     pieElement.style.setProperty('top', `${top || 0}px`);
 
     const letterSpan = document.createElement('span');
-    letterSpan.innerText = this.letter;
+    letterSpan.innerText = letter;
 
     pieElement.insertAdjacentElement('beforeend', letterSpan);
 
@@ -169,10 +170,6 @@ export class Score {
       default:
         return 'F';
     }
-  }
-
-  generateScoreLine() {
-    // todo
   }
 
   showPopup() {
