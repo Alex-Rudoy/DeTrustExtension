@@ -4,7 +4,7 @@ module.exports = {
   mode: 'production',
   entry: {
     index: './src/index.ts',
-    popup: './src/popup.ts',
+    popup: './src/popup/popup.ts',
   },
   output: {
     path: `${__dirname}/dist`,
