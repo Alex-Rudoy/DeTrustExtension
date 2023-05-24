@@ -1,4 +1,4 @@
-import { DeTrustDataLayer } from './DeTrustDataLayer2';
+import { DeTrustDataLayer } from './DeTrustDataLayer';
 import {
   CASH_TAG_REGEX,
   DEGEN_MENTION_REGEX,

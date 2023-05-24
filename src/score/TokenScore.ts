@@ -1,5 +1,5 @@
 import { Score } from './Score';
-import { DeTrustDataLayer } from '../DeTrustDataLayer2';
+import { DeTrustDataLayer } from '../DeTrustDataLayer';
 import { TokenType } from '../lib/typings';
 
 export class TokenScore {

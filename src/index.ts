@@ -1,4 +1,4 @@
-import { DeTrust } from './DeTrust2';
+import { DeTrust } from './DeTrust';
 import onDocumentLoad from './lib/utils/onDocumentLoad';
 
 onDocumentLoad(() => {

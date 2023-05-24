@@ -1,6 +1,6 @@
 import { Score } from './Score';
 import { TokenScore } from './TokenScore';
-import { DeTrustDataLayer } from '../DeTrustDataLayer2';
+import { DeTrustDataLayer } from '../DeTrustDataLayer';
 import { DegenType } from '../lib/typings';
 
 export class DegenScore {
