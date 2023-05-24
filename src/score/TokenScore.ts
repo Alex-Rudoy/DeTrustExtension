@@ -1,5 +1,5 @@
 import { Score } from './Score';
-import { DetrustDataLayer } from '../DetrustDataLayer';
+import { DeTrustDataLayer } from '../DeTrustDataLayer2';
 import { TokenType } from '../lib/typings';
 
 export class TokenScore {
@@ -65,7 +65,7 @@ export class TokenScore {
 }
 
 export type TokenScoreProps = {
-  dataLayer: DetrustDataLayer;
+  dataLayer: DeTrustDataLayer;
   keyToSearch?: 'symbol' | 'twitter_screen_name';
   valueToSearch: string;
   marginLeft?: number;

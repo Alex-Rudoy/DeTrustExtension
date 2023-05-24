@@ -1,4 +1,4 @@
-import { DetrustDataLayer } from './DetrustDataLayer';
+import { DeTrustDataLayer } from './DeTrustDataLayer2';
 import {
   CASH_TAG_REGEX,
   DEGEN_MENTION_REGEX,
@@ -10,11 +10,11 @@ import { TokenScore } from './score/TokenScore';
 
 import './styles.css';
 
-export class Detrust {
-  dataLayer: DetrustDataLayer;
+export class DeTrust {
+  dataLayer: DeTrustDataLayer;
 
   constructor() {
-    this.dataLayer = new DetrustDataLayer();
+    this.dataLayer = new DeTrustDataLayer();
     this.bindMethods();
   }
 
@@ -65,7 +65,6 @@ export class Detrust {
           marginLeft: 4,
         });
         if (!score.score) return;
-        console.log('addScoreToTokens 1', score.score);
         el?.insertAdjacentElement('beforeend', score.score.pieElement);
       });
   }
@@ -86,7 +85,6 @@ export class Detrust {
           marginLeft: 4,
         });
         if (!score.score) return;
-        console.log('addScoreToMentions 2', score.score);
         el?.parentElement?.insertAdjacentElement(
           'afterend',
           score.score.pieElement,
@@ -114,7 +112,6 @@ export class Detrust {
           marginRight: 4,
         });
         if (!score.score) return;
-        console.log('addScoreToPostAuthor 3', score.score);
         el?.insertAdjacentElement('beforebegin', score.score.pieElement);
       });
   }
@@ -146,7 +143,6 @@ export class Detrust {
       marginRight: 4,
     });
     if (!score.score) return;
-    console.log('addScoreToUserName 4', score.score);
 
     targetElement?.insertAdjacentElement('beforeend', score.score.pieElement);
 

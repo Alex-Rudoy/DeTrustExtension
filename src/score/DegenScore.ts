@@ -1,6 +1,6 @@
 import { Score } from './Score';
 import { TokenScore } from './TokenScore';
-import { DetrustDataLayer } from '../DetrustDataLayer';
+import { DeTrustDataLayer } from '../DeTrustDataLayer2';
 import { DegenType } from '../lib/typings';
 
 export class DegenScore {
@@ -73,7 +73,7 @@ export class DegenScore {
 }
 
 export type DegenScoreProps = {
-  dataLayer: DetrustDataLayer;
+  dataLayer: DeTrustDataLayer;
   username: string;
   marginLeft?: number;
   marginRight?: number;

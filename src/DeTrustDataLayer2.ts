@@ -2,7 +2,7 @@ import api from './lib/api';
 import { STORAGE_DATA_LAYER_KEY } from './lib/constants';
 import { DegenType, TokenType } from './lib/typings';
 
-export class DetrustDataLayer {
+export class DeTrustDataLayer {
   tokens: TokenType[] = [];
   degens: DegenType[] = [];
 

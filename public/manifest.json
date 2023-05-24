@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Detrust",
+  "name": "DeTrust",
   "version": "1.0",
-  "description": "Browser extension to display Detrust scores in Twitter",
+  "description": "Browser extension to display DeTrust scores in Twitter",
   "icons": {
     "16": "detrust-16.png",
     "32": "detrust-32.png",
@@ -14,5 +14,24 @@
       "js": ["index.js"],
       "matches": ["https://twitter.com/*"]
     }
-  ]
+  ],
+  "permissions": ["storage", "activeTab", "scripting"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "detrust-16.png",
+      "32": "detrust-32.png",
+      "48": "detrust-48.png",
+      "128": "detrust-128.png"
+    }
+  },
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "detrust-16.png",
+      "32": "detrust-32.png",
+      "48": "detrust-48.png",
+      "128": "detrust-128.png"
+    }
+  }
 }

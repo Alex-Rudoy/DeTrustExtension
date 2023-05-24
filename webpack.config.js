@@ -3,14 +3,15 @@ const CopyPlugin = require('copy-webpack-plugin');
 module.exports = {
   mode: 'production',
   entry: {
-    moda: './src/index.ts',
+    index: './src/index.ts',
+    popup: './src/popup.ts',
   },
   output: {
     path: `${__dirname}/dist`,
-    filename: 'index.js',
+    filename: '[name].js',
     publicPath: '/',
     libraryTarget: 'var',
-    library: 'Detrust',
+    library: 'DeTrust',
   },
   resolve: {
     extensions: ['.js', '.ts'],

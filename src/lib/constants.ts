@@ -1,5 +1,5 @@
 export const BASE_URL = 'https://plankton-app-awr8q.ondigitalocean.app';
-export const STORAGE_DATA_LAYER_KEY = 'DetrustDataLayer';
+export const STORAGE_DATA_LAYER_KEY = 'DeTrustDataLayer';
 
 export const DETRUST_VISITED_CLASS = 'detrust_visited';
 
