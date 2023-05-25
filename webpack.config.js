@@ -1,10 +1,13 @@
+const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'production',
   entry: {
-    index: './src/index.ts',
-    popup: './src/popup/popup.ts',
+    script: path.resolve('./src/script/index.ts'),
+    popup: path.resolve('./src/popup/index.tsx'),
+    background: path.resolve('./src/background/index.ts'),
   },
   output: {
     path: `${__dirname}/dist`,
@@ -12,9 +15,10 @@ module.exports = {
     publicPath: '/',
     libraryTarget: 'var',
     library: 'DeTrust',
+    clean: true,
   },
   resolve: {
-    extensions: ['.js', '.ts'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.css', '.scss'],
   },
   module: {
     rules: [
@@ -24,7 +28,7 @@ module.exports = {
         use: 'ts-loader',
       },
       {
-        test: /\.css$/,
+        test: /\.s?css$/,
         exclude: [/node_modules/],
         use: [
           {
@@ -33,6 +37,9 @@ module.exports = {
           {
             loader: 'css-loader', // translates CSS into CommonJS
           },
+          {
+            loader: 'sass-loader', // translates CSS into CommonJS
+          },
         ],
       },
     ],
@@ -40,6 +47,11 @@ module.exports = {
   plugins: [
     new CopyPlugin({
       patterns: [{ from: '.', to: '.', context: 'public' }],
+    }),
+    new HtmlWebpackPlugin({
+      title: 'DeTrust Plugin',
+      filename: 'popup.html',
+      chunks: ['popup'],
     }),
   ],
   devServer: {

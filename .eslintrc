@@ -1,6 +1,20 @@
 {
-  "extends": ["airbnb-base", "airbnb-typescript/base"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "react-hooks"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended", // Uses the recommended rules from @typescript-eslint/eslint-plugin
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended", // Uses the recommended rules from @eslint-plugin-react
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended",
+    "airbnb-base",
+    "airbnb-typescript/base",
+    "plugin:import/recommended",
+    "plugin:import/typescript"
+  ],
   "rules": {
+    "arrow-body-style": 0,
     "import/no-extraneous-dependencies": 0,
     "implicit-arrow-linebreak": 0,
     "max-len": 0,
@@ -15,10 +29,36 @@
     "@typescript-eslint/lines-between-class-members": 0,
     "import/no-cycle": 0,
     "object-curly-newline": 0,
-    "@typescript-eslint/indent": 0,
     "import/prefer-default-export": 0,
     "class-methods-use-this": 0,
-    "prefer-destructuring": 0
+    "prefer-destructuring": 0,
+    "react/react-in-jsx-scope": 0,
+    "react/display-name": 0,
+    "react/prop-types": 0,
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "@typescript-eslint/explicit-member-accessibility": 0,
+    "@typescript-eslint/indent": 0,
+    "@typescript-eslint/member-delimiter-style": 0,
+    "@typescript-eslint/no-explicit-any": 1,
+    "@typescript-eslint/no-var-requires": 0,
+    "@typescript-eslint/no-unused-vars": [
+      1,
+      { "argsIgnorePattern": "payload" }
+    ],
+    "@typescript-eslint/interface-name-prefix": 0,
+    "jsx-a11y/click-events-have-key-events": 0,
+    "jsx-a11y/no-static-element-interactions": 0,
+    "jsx-a11y/anchor-is-valid": 0,
+    "@typescript-eslint/ban-ts-comment": 1,
+    "no-console": [
+      1,
+      {
+        "allow": ["warn", "error"]
+      }
+    ],
+    "react-hooks/rules-of-hooks": 2,
+    "react-hooks/exhaustive-deps": 0,
+    "import/no-anonymous-default-export": 0
   },
   "parserOptions": {
     "ecmaVersion": 2020,

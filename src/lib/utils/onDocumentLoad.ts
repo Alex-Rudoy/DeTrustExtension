@@ -6,7 +6,7 @@ const onDocumentLoad = (onReadyCallback: () => void) => {
     return;
   }
 
-  document.addEventListener('DOMContentLoaded', onReadyCallback as any);
+  document.addEventListener('DOMContentLoaded', onReadyCallback);
 };
 
 export default onDocumentLoad;

@@ -3,35 +3,38 @@
   "name": "DeTrust",
   "version": "1.0",
   "description": "Browser extension to display DeTrust scores in Twitter",
+  "permissions": ["storage", "activeTab", "scripting", "tabs"],
   "icons": {
-    "16": "detrust-16.png",
-    "32": "detrust-32.png",
-    "48": "detrust-48.png",
-    "128": "detrust-128.png"
+    "16": "images/detrust-16.png",
+    "32": "images/detrust-32.png",
+    "48": "images/detrust-48.png",
+    "128": "images/detrust-128.png"
   },
   "content_scripts": [
     {
-      "js": ["index.js"],
+      "js": ["script.js"],
       "matches": ["https://twitter.com/*"]
     }
   ],
-  "permissions": ["storage", "activeTab", "scripting"],
+  "background": {
+    "service_worker": "background.js"
+  },
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "detrust-16.png",
-      "32": "detrust-32.png",
-      "48": "detrust-48.png",
-      "128": "detrust-128.png"
+      "16": "images/detrust-16.png",
+      "32": "images/detrust-32.png",
+      "48": "images/detrust-48.png",
+      "128": "images/detrust-128.png"
     }
   },
   "browser_action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "detrust-16.png",
-      "32": "detrust-32.png",
-      "48": "detrust-48.png",
-      "128": "detrust-128.png"
+      "16": "images/detrust-16.png",
+      "32": "images/detrust-32.png",
+      "48": "images/detrust-48.png",
+      "128": "images/detrust-128.png"
     }
   }
 }
