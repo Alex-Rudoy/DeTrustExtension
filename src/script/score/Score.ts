@@ -175,7 +175,7 @@ export class Score {
   showPopup() {
     this.popupElement.setAttribute('data-show', '');
     this.popupElement.removeAttribute('data-hide');
-    this.popperInstance?.update().catch(() => {});
+    this.popperInstance?.update();
   }
 
   hidePopup() {

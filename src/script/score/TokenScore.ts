@@ -27,6 +27,7 @@ export class TokenScore {
       link: `https://de-trust-front.vercel.app/tokens/${tokenFound.symbol}`,
       scores: this.scoresFromToken(tokenFound),
     });
+    this.addButtonsToPopup();
   }
 
   scoresFromToken(token: TokenType) {
@@ -63,10 +64,15 @@ export class TokenScore {
     ];
   }
 
-  // addButtonsToPopup() {
-  //   if (!this.score?.popupElement) return;
-  //   return this.score?.popupElement;
-  // }
+  addButtonsToPopup() {
+    if (!this.score?.popupElement) return;
+    const button = document.createElement('button');
+    button.innerText = 'Open in DeTrust';
+    button.addEventListener('click', () => {
+      chrome.runtime.sendMessage({ detrustOpenPopup: true });
+    });
+    this.score.popupElement.insertAdjacentElement('beforeend', button);
+  }
 }
 
 export type TokenScoreProps = {

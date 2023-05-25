@@ -36,5 +36,11 @@
       "48": "images/detrust-48.png",
       "128": "images/detrust-128.png"
     }
-  }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["popup.html", "popup.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }

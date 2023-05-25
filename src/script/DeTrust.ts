@@ -31,7 +31,7 @@ export class DeTrust {
     this.dataLayer.restoreFromLocalStorage();
     if (this.dataLayer.tokens.length || this.dataLayer.degens.length) {
       this.run();
-      this.dataLayer.fetchData().catch(() => {});
+      this.dataLayer.fetchData();
       return;
     }
     await this.dataLayer.fetchData();

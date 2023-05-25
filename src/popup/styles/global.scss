@@ -5,23 +5,18 @@ html {
   overflow: hidden;
   background: var(--primary-dark-900);
   user-select: none;
+  width: 350px;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  width: 250px;
   margin: 0;
-  padding: 32px 40px;
-  border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #030f21;
-  color: #e4e7ec;
-  font-family: Inter, Arial, Helvetica, sans-serif;
+  padding: 0;
+}
 
-  * {
-    transition: all 0.3s ease-in-out;
-  }
+#root {
+  width: 100%;
 }
 
 p,

@@ -1,0 +1,30 @@
+.container {
+  padding: 32px 40px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 32px;
+}
+
+.subheading {
+  margin-bottom: 48px;
+}
+
+.input {
+  margin-bottom: 32px;
+}
+
+.unlockButton {
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+.forgotPassword {
+  margin-bottom: 16px;
+}
