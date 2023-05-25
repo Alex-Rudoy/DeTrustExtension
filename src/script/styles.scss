@@ -145,14 +145,30 @@
 
   .score_line {
     margin-bottom: 8px;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
   }
 
   .detrust_degen_note {
     font-size: 14px;
     font-weight: 400;
+  }
+
+  .detrust-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: stretch;
+    gap: 16px;
+  }
+
+  .detrust-button {
+    background-color: var(--detrust-title);
+    border: 1px solid var(--detrust-text);
+    color: var(--detrust-bgc);
+    width: 50%;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: none;
   }
 }

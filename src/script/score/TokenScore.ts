@@ -66,12 +66,20 @@ export class TokenScore {
 
   addButtonsToPopup() {
     if (!this.score?.popupElement) return;
-    const button = document.createElement('button');
-    button.innerText = 'Open in DeTrust';
-    button.addEventListener('click', () => {
-      chrome.runtime.sendMessage({ detrustOpenPopup: true });
-    });
-    this.score.popupElement.insertAdjacentElement('beforeend', button);
+    const buttons = `
+      <div class="detrust-buttons">
+        <button class="detrust-button">Buy</button>
+        <button class="detrust-button">Sell</button>
+      </div>
+    `;
+    this.score.popupElement.insertAdjacentHTML('beforeend', buttons);
+    this.score.popupElement
+      .querySelectorAll('.detrust-button')
+      .forEach((button) => {
+        button.addEventListener('click', () => {
+          chrome.runtime.sendMessage({ detrustOpenPopup: true });
+        });
+      });
   }
 }
 
