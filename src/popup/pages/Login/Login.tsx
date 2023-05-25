@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
+import { InputPassword } from '../../components/InputPassword';
 import { Link } from '../../components/Link';
 import { FontWeightEnum, Text, TextSizeEnum } from '../../components/Text';
 
@@ -25,7 +26,7 @@ export const Login = () => {
       >
         Make smarter decisions
       </Text>
-      <Input
+      <InputPassword
         label="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}

@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import { NavigationContext } from './routing/NavigationContext';
 import { PagesEnum } from './routing/PagesEnum';
@@ -15,6 +15,12 @@ export const App = () => {
   );
 
   const Page = routes[currentPage];
+
+  useEffect(() => {
+    setTimeout(() => {
+      document.body.classList.add('loaded');
+    }, 0);
+  }, []);
 
   return (
     <NavigationContext.Provider value={contextValue}>

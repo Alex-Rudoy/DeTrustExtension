@@ -13,6 +13,16 @@ html {
 body {
   margin: 0;
   padding: 0;
+
+  --transition-property: all;
+  --transition-time: 0.3s;
+  --transition-function: ease;
+
+  &.loaded * {
+    box-sizing: border-box;
+    transition: var(--transition-property) var(--transition-time)
+      var(--transition-function);
+  }
 }
 
 #root {
@@ -23,18 +33,6 @@ p,
 a,
 label {
   user-select: none;
-}
-
-:root {
-  --transition-property: all;
-  --transition-time: 0.3s;
-  --transition-function: ease;
-}
-
-* {
-  box-sizing: border-box;
-  transition: var(--transition-property) var(--transition-time)
-    var(--transition-function);
 }
 
 a {
