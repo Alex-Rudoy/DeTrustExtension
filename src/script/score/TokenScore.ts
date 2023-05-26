@@ -68,8 +68,8 @@ export class TokenScore {
     if (!this.score?.popupElement) return;
     const buttons = `
       <div class="detrust-buttons">
-        <button class="detrust-button">Buy</button>
-        <button class="detrust-button">Sell</button>
+        <button class="detrust-button detrust-button-buy">Buy</button>
+        <button class="detrust-button detrust-button-sell">Sell</button>
       </div>
     `;
     this.score.popupElement.insertAdjacentHTML('beforeend', buttons);

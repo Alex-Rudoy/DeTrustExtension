@@ -79,6 +79,11 @@
   }
 }
 
+.detrust_degen_note {
+  font-size: 14px;
+  font-weight: 400;
+}
+
 .detrust_popup {
   border-radius: 16px;
   padding: 16px;
@@ -147,28 +152,31 @@
     margin-bottom: 8px;
   }
 
-  .detrust_degen_note {
-    font-size: 14px;
-    font-weight: 400;
-  }
-
   .detrust-buttons {
     width: 100%;
     display: flex;
-    justify-content: stretch;
+    justify-content: space-between;
     gap: 16px;
   }
 
   .detrust-button {
-    background-color: var(--detrust-title);
-    border: 1px solid var(--detrust-text);
-    color: var(--detrust-bgc);
-    width: 50%;
-    height: 40px;
-    font-size: 20px;
+    color: white;
+    width: 40%;
+    height: 30px;
+    font-size: 16px;
     border-radius: 20px;
     cursor: pointer;
+    border: none;
     outline: none;
     box-shadow: none;
+    margin-top: 16px;
+
+    &-buy {
+      background-color: #12b76a;
+    }
+
+    &-sell {
+      background-color: #f04438;
+    }
   }
 }

@@ -6,7 +6,30 @@
   align-items: center;
 }
 
-.logo {
+.header {
+  height: 48px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  background-color: var(--primary-dark-900);
+  border-bottom: 1px solid var(--primary-200);
+
+  .logo {
+    width: 24px;
+    height: 24px;
+  }
+
+  .avatarContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+}
+
+.bigLogo {
   width: 64px;
   height: 64px;
   margin-bottom: 32px;
